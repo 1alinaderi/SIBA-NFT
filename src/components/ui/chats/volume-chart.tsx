@@ -1,0 +1,39 @@
+import { useState } from 'react';
+import { format } from 'date-fns';
+import { BarChart, Bar, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { VolumeData } from '@/data/static/volume';
+
+function CustomAxis({ x, y, payload }: any) {
+  const date = format(new Date(payload.value * 1000), 'd');
+  return (
+    <g transform={`translate(${x},${y})`} className="text-sm text-gray-500">
+      <text x={0} y={0} dy={10} textAnchor="end" fill="currentColor">
+        {date}
+      </text>
+    </g>
+  );
+}
+
+const numberAbbr = (number: any) => {
+  if (number < 1e3) return number;
+  if (number >= 1e3 && number < 1e6) return +(number / 1e3).toFixed(1) + 'K';
+  if (number >= 1e6 && number < 1e9) return +(number / 1e6).toFixed(1) + 'M';
+  if (number >= 1e9 && number < 1e12) return +(number / 1e9).toFixed(1) + 'B';
+  if (number >= 1e12) return +(number / 1e12).toFixed(1) + 'T';
+};
+
+export default function VolumeChart() {
+  let [date, setDate] = useState(1624147200);
+  let [volume, setVolume] = useState('547792029');
+  const formattedDate = format(new Date(date * 1000), 'MMMM d, yyyy');
+  const dailyVolume = numberAbbr(volume);
+
+  return (
+    <div className="rounded-lg bg-white p-4 shadow-card flex flex-wrap dark:bg-light-dark sm:p-8">
+      <img src='/home (1).jpg' className='w-[50%] p-1'/>
+      <img src='/home (2).jpg' className='w-[50%] p-1'/>
+      <img src='/home (3).jpg' className='w-[50%] p-1'/>
+      <img src='/home (4).jpg' className='w-[50%] p-1'/>
+    </div>
+  );
+}
