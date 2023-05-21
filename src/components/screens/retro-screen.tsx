@@ -10,8 +10,8 @@ export default function RetroScreen() {
   return (
     <>
       <NextSeo
-        title="Criptic - Retro"
-        description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
+        title="Siba NFT - Retro"
+        description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
       />
       <div className="retro-container">
         <div>

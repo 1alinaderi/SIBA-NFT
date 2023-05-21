@@ -29,7 +29,7 @@ export default function Logo() {
       className="flex w-50 outline-none sm:w-50 4xl:w-50"
     >
       <span className="relative flex overflow-hidden items-center">
-      <img style={{ width: '40px' }} className="mr-2" src={'/logo.png'} alt="Criptic" />
+      <img style={{ width: '40px' }} className="mr-2" src={'/logo.png'} alt="Siba NFT" />
       SIBA NFT
       </span>
     </AnchorLink>

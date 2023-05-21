@@ -34,7 +34,7 @@ export const menuItems = [
   },
   
   {
-    name: 'Tokenomic',
+    name: 'Tokenomics',
     href: routes.tokenomic,
   },
  

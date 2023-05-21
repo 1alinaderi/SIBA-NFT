@@ -16,7 +16,7 @@ const WhitePaper: NextPageWithLayout = () => {
     <>
       <NextSeo
         title="White Paper"
-        description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
+        description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
       />
       <div className="rounded-lg bg-white p-6 shadow-card dark:bg-light-dark sm:p-8">
         <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 uppercase tracking-wider sm:mb-2 sm:text-base">

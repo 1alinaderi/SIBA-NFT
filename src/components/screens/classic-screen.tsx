@@ -17,9 +17,11 @@ export default function ClassicScreen() {
   return (
     <>
       <NextSeo
-        title="Criptic Classic Demo"
-        description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
+        title="Siba NFT Classic Demo"
+        description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
+        
       />
+
       <div className="flex flex-wrap">
         <div className="mb-8 w-full sm:mb-0  dark:[&_.swiper-scrollbar>_.swiper-scrollbar-drag]:bg-body/50">
           <CoinSlider coins={coinSlideData} />
