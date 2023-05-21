@@ -26,27 +26,27 @@ import { LAYOUT_OPTIONS } from '@/lib/constants';
 const ColorPreset = [
   {
     label: 'Black',
-    value: '#323743',
+    value: '#f40000',
   },
   {
     label: 'Blue',
-    value: '#2a52be',
+    value: '#f40000',
   },
   {
     label: 'Green',
-    value: '#009e60',
+    value: '#f40000',
   },
   {
     label: 'Red',
-    value: '#e34234',
+    value: '#f40000',
   },
   {
     label: 'Purple',
-    value: '#9370DB',
+    value: '#f40000',
   },
   {
     label: 'Orange',
-    value: '#ffa500',
+    value: '#f40000',
   },
 ];
 
@@ -88,7 +88,8 @@ function SwitcherButton({
 
 // Component: ThemeSwitcher
 function ThemeSwitcher() {
-  const { theme, setTheme } = useTheme("dark");
+ 
+
   return (
     <div className="px-6 pt-8">
       <h4 className="mb-4 text-sm font-medium text-gray-900 dark:text-white">

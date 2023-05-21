@@ -270,3 +270,16 @@ Styles for Swiper slider
   background-color: transparent;
   border: 2px solid #fff;
 }
+
+.social_icon{
+  width: 40px;
+  height: 40px;
+  padding: 4px;
+  border-radius: 50%;
+  background-color: #194480;
+  color: #fff;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

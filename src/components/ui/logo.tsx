@@ -26,15 +26,11 @@ export default function Logo() {
             },
           }),
       }}
-      className="flex w-28 outline-none sm:w-32 4xl:w-36"
+      className="flex w-50 outline-none sm:w-50 4xl:w-50"
     >
-      <span className="relative flex overflow-hidden">
-        {isMounted && isDarkMode && (
-          <Image src={darkLogo} alt="Criptic" height={24} priority />
-        )}
-        {isMounted && !isDarkMode && (
-          <Image src={lightLogo} alt="Criptic" height={24} priority />
-        )}
+      <span className="relative flex overflow-hidden items-center">
+      <img style={{ width: '40px' }} className="mr-2" src={'/logo.png'} alt="Criptic" />
+      SIBA NFT
       </span>
     </AnchorLink>
   );

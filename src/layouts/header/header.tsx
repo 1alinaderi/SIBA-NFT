@@ -10,6 +10,7 @@ import { useIsMounted } from '@/lib/hooks/use-is-mounted';
 import { useDrawer } from '@/components/drawer-views/context';
 import WalletConnect from '@/components/nft/wallet-connect';
 import routes from '@/config/routes';
+import { Web3Button } from '@web3modal/react';
 
 function NotificationButton() {
   return (
@@ -26,7 +27,7 @@ function HeaderRightArea() {
   return (
     <div className="relative order-last flex shrink-0 items-center gap-4 sm:gap-6 lg:gap-8">
       {/* <NotificationButton /> */}
-      <WalletConnect />
+      <Web3Button />
     </div>
   );
 }

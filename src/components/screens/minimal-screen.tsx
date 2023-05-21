@@ -12,6 +12,7 @@ import { priceFeedData } from '@/data/static/price-feed';
 import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 //images
 import AuthorImage from '@/assets/images/author.jpg';
+import { useTheme } from 'next-themes';
 
 const topPoolsLimit = (breakpoint: string) => {
   switch (breakpoint) {
@@ -30,6 +31,13 @@ export default function MinimalScreen() {
   useEffect(() => {
     setLimit(topPoolsLimit(breakpoint));
   }, [breakpoint]);
+  const { theme, setTheme } = useTheme();
+ 
+useEffect((e)=>{
+  setTheme("dark")
+  console.log(theme)
+} , [theme])
+
   return (
     <>
       <NextSeo

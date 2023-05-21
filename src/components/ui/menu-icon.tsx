@@ -12,12 +12,7 @@ const Logo: React.FC<React.SVGAttributes<{}>> = (props) => {
   return (
     <div className="flex cursor-pointer outline-none" {...props}>
       <span className="relative flex overflow-hidden">
-        {isMounted && isDarkMode && (
-          <Image src={darkLogo} alt="Criptic" priority fill />
-        )}
-        {isMounted && !isDarkMode && (
-          <Image src={lightLogo} alt="Criptic" priority fill />
-        )}
+        <img style={{ width: '40px' }} src={'/logo.png'} alt="Criptic" />
       </span>
     </div>
   );

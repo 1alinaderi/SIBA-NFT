@@ -7,12 +7,17 @@ import ModernScreen from '@/components/screens/modern-screen';
 import MinimalScreen from '@/components/screens/minimal-screen';
 import ClassicScreen from '@/components/screens/classic-screen';
 import RetroScreen from '@/components/screens/retro-screen';
+import { useTheme } from 'next-themes';
+import { useEffect } from 'react';
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {},
   };
 };
+
+
+
 
 const HomePage: NextPageWithLayout<
   InferGetStaticPropsType<typeof getStaticProps>

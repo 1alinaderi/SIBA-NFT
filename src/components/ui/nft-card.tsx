@@ -28,12 +28,7 @@ export default function NFTGrid({
           href="/"
           className="flex items-center text-sm font-medium text-gray-600 transition hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
         >
-          <Avatar
-            image={authorImage}
-            alt={name}
-            size="sm"
-            className="text-ellipsis ltr:mr-3 rtl:ml-3 dark:border-gray-500"
-          />
+          <img src='/logo.png' style={{width:"40px"}} className="mr-2" />
           <span className="overflow-hidden text-ellipsis">{author}</span>
         </AnchorLink>
       </div>

@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app';
 import type { NextPageWithLayout } from '@/types';
 // import { Fira_Code } from 'next/font/google';
 import Head from 'next/head';
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider, useTheme } from 'next-themes';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import ModalsContainer from '@/components/modal-views/container';
 import DrawersContainer from '@/components/drawer-views/container';
@@ -16,7 +16,7 @@ import 'swiper/css/pagination';
 import '@/assets/css/scrollbar.css';
 import '@/assets/css/globals.css';
 import '@/assets/css/range-slider.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   EthereumClient,
   w3mConnectors,
@@ -57,6 +57,7 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
     publicClient,
   });
   const ethereumClient = new EthereumClient(wagmiConfig, chains);
+  
   return (
     <>
       <Head>
@@ -65,7 +66,8 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
           name="viewport"
           content="width=device-width, initial-scale=1 maximum-scale=1"
         />
-        <title>Criptic - React Next Web3 NFT Crypto Dashboard Template</title>
+        <title>Siba Nft</title>
+        <link rel="icon" href={'/logo.png'} />
       </Head>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider
@@ -75,7 +77,7 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
         >
           <WagmiConfig config={wagmiConfig}>
             {/* <div className={`${firaCode.variable} font-body`}> */}
-            {getLayout(<Component {...pageProps} />)}
+            {getLayout(<Component ethereumClient={ethereumClient} {...pageProps} />)}
             <SettingsButton />
             <SettingsDrawer />
             <ModalsContainer />
