@@ -19,32 +19,7 @@ const WhitePaper: NextPageWithLayout = () => {
         description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
       />
       <div className="rounded-lg bg-white p-6 shadow-card dark:bg-light-dark sm:p-8">
-        <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 uppercase tracking-wider sm:mb-2 sm:text-base">
-          NFTSIBA
-        </h3>
-        <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
-          We want equitable revenue share and safe ecosystem between the
-          artists, art gallery and the investor(holder). We put the needs
-          together to share and receive the fees. The investor will receive free
-          pass to the art gallery. Do you wish to purchase an art work? This is
-          why we have prepared the way to access NFT Blockchain by using
-          internet to buy and sell. We will implement this by 'THE PUNK WORLD'.
-        </div>
-        <img alt='' src='/white (1).jpg' className='w-[300px] my-5 mx-auto' />
-        <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 mt-6 uppercase tracking-wider sm:mb-2 sm:text-base">
-          # 'THE PUNK WORLD' (NFT Virtual Game soon)
-        </h3>
-        <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
-          ' THE PUNK WORLD ' is NFT game. It's Pixel Virtual world is similar
-          with Minecraft. By accessing this program, you can inter the Tokyo art
-          gallery without visiting Tokyo. The virtual world will be same as the
-          actual Tokyo art gallery. You can monitor public art, Locked Art from
-          here and also able to purchase it. There will be a fee occurring to
-          tjis transaction, this fee will be distributed to holder and artist
-          fee, and art gallery fee. # 'THE PUNK WORLD' (NFT Virtual Game soon)
-        </div>
-        <img alt='' src='/white (2).jpg' className='w-[300px] my-5 mx-auto' />
-
+        
         <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 mt-6 uppercase tracking-wider sm:mb-2 sm:text-base">
           NFT Siba Finance
         </h3>
@@ -136,6 +111,7 @@ const WhitePaper: NextPageWithLayout = () => {
           %5 Team
           <br />
         </div>
+        <img alt='' src='/white (2).jpg' className='w-[300px] my-5 mx-auto' />
         <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 mt-6 uppercase tracking-wider sm:mb-2 sm:text-base">
           Roadmap
         </h3>
@@ -230,6 +206,30 @@ const WhitePaper: NextPageWithLayout = () => {
           period of time that it has existed for. Therefore, we are pushing for
           a revolution of NFT, NFT 2.0, where the value of art can be more
           clearly defined.
+        </div>
+        <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 uppercase tracking-wider sm:mb-2 sm:text-base">
+          NFTSIBA
+        </h3>
+        <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
+          We want equitable revenue share and safe ecosystem between the
+          artists, art gallery and the investor(holder). We put the needs
+          together to share and receive the fees. The investor will receive free
+          pass to the art gallery. Do you wish to purchase an art work? This is
+          why we have prepared the way to access NFT Blockchain by using
+          internet to buy and sell. We will implement this by 'THE PUNK WORLD'.
+        </div>
+        <img alt='' src='/white (1).jpg' className='w-[300px] my-5 mx-auto' />
+        <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 mt-6 uppercase tracking-wider sm:mb-2 sm:text-base">
+          # 'THE PUNK WORLD' (NFT Virtual Game soon)
+        </h3>
+        <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
+          ' THE PUNK WORLD ' is NFT game. It's Pixel Virtual world is similar
+          with Minecraft. By accessing this program, you can inter the Tokyo art
+          gallery without visiting Tokyo. The virtual world will be same as the
+          actual Tokyo art gallery. You can monitor public art, Locked Art from
+          here and also able to purchase it. There will be a fee occurring to
+          tjis transaction, this fee will be distributed to holder and artist
+          fee, and art gallery fee. # 'THE PUNK WORLD' (NFT Virtual Game soon)
         </div>
       </div>
     </>
