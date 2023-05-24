@@ -54,7 +54,7 @@ export default function ModernScreen() {
         <div className="w-full">
           <div className="flex h-full flex-col justify-center rounded-lg bg-white p-6 shadow-card dark:bg-light-dark xl:p-8">
            <h3 className="mb-2 mt-4 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">
-              Address
+              Contract Address
             </h3>
             <div
               style={{ cursor: 'pointer' }}
