@@ -76,8 +76,7 @@ const WhitePaper: NextPageWithLayout = () => {
               Binance DEX{' '}
             </li>
           </ul>
-          A network of major crypto projects already collaborating with BSC NFT
-          Siba Whitepaper This project was launched on 10 Jun 2021 by a team of
+          A network of major crypto projects already collaborating with BSC Siba Inu Whitepaper This project was launched on 2 May 2023 by a team of
           developers from the US and JAPAN(NFTPUNK's business partner and new
           power programmer). Subsequently, an internationally team was formed
           with the addition of our community’s investors and holders. The
@@ -112,8 +111,7 @@ const WhitePaper: NextPageWithLayout = () => {
           amounts of tokens, as any long-term holder could become a whale one
           day with the amount of tokens being burnt and liquidity being added.
           However, this does mean that there is certainty of no developer rug
-          pull. A whale dumping may cause short term harm to the value of NFT .
-          Siba, but the community can always recover. To ensure a long life of
+          pull. A whale dumping may cause short term harm to the value of Siba Inu , but the community can always recover. To ensure a long life of
           Siba Inu  , liquidity is added to theLiquidity Pool with every
           transaction. As it is all burnt, no one (including the developer
           oradmins) can pull the liquidity out. The more transactions, the

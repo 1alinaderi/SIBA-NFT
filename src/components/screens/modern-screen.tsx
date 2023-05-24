@@ -24,7 +24,7 @@ import Link from 'next/link';
 
 export default function ModernScreen() {
   const { theme, setTheme } = useTheme();
-  const text = '0xddsakopkpo12kop21kco12ijc211uj';
+  const text = '0x9ce68CE31c2Cd849d345f3E7534e57F9A1dfe9F8';
 
   const handleCopy = useCallback(() => {
     copy(text);
@@ -53,7 +53,17 @@ export default function ModernScreen() {
         </div>
         <div className="w-full">
           <div className="flex h-full flex-col justify-center rounded-lg bg-white p-6 shadow-card dark:bg-light-dark xl:p-8">
-          
+           <h3 className="mb-2 mt-4 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">
+              Contract Address
+            </h3>
+            <div
+              style={{ cursor: 'pointer' }}
+              onClick={handleCopy}
+              className="mb-7 text-center font-medium tracking-tighter text-gray-900 dark:text-white xl:text-2xl 3xl:mb-8 3xl:text-[32px]"
+            >
+              {text}
+            </div>
+            {/* <TopupButton /> */}
             <div className="flex w-full flex-wrap justify-between py-4">
               <span className="flex w-[50%] justify-center px-5">
                 <Link className='w-full' href={"/swap"}>
@@ -76,17 +86,7 @@ export default function ModernScreen() {
                 </Link>
               </span>
             </div>
-            {/* <h3 className="mb-2 mt-4 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">
-              Address
-            </h3>
-            <div
-              style={{ cursor: 'pointer' }}
-              onClick={handleCopy}
-              className="mb-7 text-center font-medium tracking-tighter text-gray-900 dark:text-white xl:text-2xl 3xl:mb-8 3xl:text-[32px]"
-            >
-              {text}
-            </div> */}
-            {/* <TopupButton /> */}
+           
           </div>
         </div>
       </div>
