@@ -17,7 +17,7 @@ const Listbox = dynamic(() => import('@/components/ui/list-box'));
 
 const tradeMenu = [
   {
-    name: 'Swap',
+    name: 'SIBA Swap',
     value: routes.swap,
   },
 ];

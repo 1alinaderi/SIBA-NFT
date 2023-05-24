@@ -16,7 +16,7 @@ export const menuItems = [
     href: routes.home,
   },
   {
-    name: 'Swap',
+    name: 'SIBA Swap',
     href: routes.swap,
   },
   {

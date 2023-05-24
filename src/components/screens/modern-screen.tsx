@@ -71,7 +71,7 @@ export default function ModernScreen() {
                 </Link>
               </span>
               <span className="flex w-[50%] justify-center px-5 mt-5">
-              <Link className='w-full' href={"/swap"}>
+              <Link download className='w-full' href={"/audit.pdf"}>
                 <Button color='danger' className="w-full" children="AUDIT" />
                 </Link>
               </span>
