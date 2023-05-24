@@ -125,7 +125,7 @@ export default function ModernScreen() {
               <FaTelegram />
             </span>
             </Link>
-            <Link href={"/"}>
+            <Link href={"mailto:info@sibatoken.com"}>
             <span className='social_icon'>
               <FaEnvelope />
             </span>
