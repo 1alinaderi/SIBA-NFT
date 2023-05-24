@@ -85,7 +85,7 @@ const ProposalsPage: NextPageWithLayout = () => {
     <>
       <NextSeo
         title="Proposal"
-        description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
+        description="Siba Inu - React Next Web3 NFT Crypto Dashboard Template"
       />
       <section className="mx-auto w-full max-w-[1160px] text-sm ">
         <header
@@ -108,7 +108,7 @@ const ProposalsPage: NextPageWithLayout = () => {
                 You have 100 votes
               </h2>
               <p className="leading-relaxed text-gray-600 dark:text-gray-400">
-                You need Siba NFT or Siba NFT tokens to participate in governance.
+                You need Siba Inu or Siba Inu tokens to participate in governance.
               </p>
             </div>
           </div>

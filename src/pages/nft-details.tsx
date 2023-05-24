@@ -37,7 +37,7 @@ const NFTDetailsPage: NextPageWithLayout<
     <>
       <NextSeo
         title="NFT details"
-        description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
+        description="Siba Inu - React Next Web3 NFT Crypto Dashboard Template"
       />
       <NftDetails product={nftData} />
     </>

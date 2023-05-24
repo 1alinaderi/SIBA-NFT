@@ -63,7 +63,7 @@ function CoinPrices() {
       <>
         <NextSeo
           title="Live Pricing"
-          description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
+          description="Siba Inu - React Next Web3 NFT Crypto Dashboard Template"
         />
         <LivePricingSliderRetro limits={3} />
         <CryptocurrencyPricingRetroTable />
@@ -75,7 +75,7 @@ function CoinPrices() {
     <>
       <NextSeo
         title="Live Pricing"
-        description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
+        description="Siba Inu - React Next Web3 NFT Crypto Dashboard Template"
       />
       <LivePricingSlider limits={4} />
       <CryptocurrencyPricingTable />

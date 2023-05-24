@@ -38,7 +38,7 @@ export default function LiquidityChart() {
       </h3>
       <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
         Our platform will be powered by our deflationary utility-token
-        NFT.Siba.Finance andusers of our platform will be able to stake our
+        Siba Inu Finance andusers of our platform will be able to stake our
         token to claim or issue NFT’s.We are setting out to become the easiest
         NFT platform to use by amongst other things implementing simple drag &
         drop solutions. First, we are releasing a web version and later apps for

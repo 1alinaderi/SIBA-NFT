@@ -17,8 +17,8 @@ export default function ClassicScreen() {
   return (
     <>
       <NextSeo
-        title="Siba NFT Classic Demo"
-        description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
+        title="Siba Inu Classic Demo"
+        description="Siba Inu - React Next Web3 NFT Crypto Dashboard Template"
         
       />
 

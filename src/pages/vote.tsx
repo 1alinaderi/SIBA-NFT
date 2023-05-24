@@ -22,7 +22,7 @@ const VotePage: NextPageWithLayout = () => {
     <>
       <NextSeo
         title="Vote"
-        description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
+        description="Siba Inu - React Next Web3 NFT Crypto Dashboard Template"
       />
       <div className="mx-auto w-full max-w-[1160px] text-sm md:pt-14 4xl:pt-24">
         <div

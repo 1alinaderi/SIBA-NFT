@@ -3,7 +3,7 @@ import AuthorImage from '@/assets/images/author.jpg';
 export const NFTList = [
   {
     id: 1,
-    author: 'SIBA NFT',
+    author: 'SIBA Inu',
     authorImage: AuthorImage,
     image: "/nft (1).jpg",
     name: 'Shiba Social Club #159',
@@ -11,7 +11,7 @@ export const NFTList = [
   },
   {
     id: 2,
-    author: 'SIBA NFT',
+    author: 'SIBA Inu',
     authorImage: AuthorImage,
     image: "/nft (2).jpg",
     name: 'Shiba Social Club #978',
@@ -19,7 +19,7 @@ export const NFTList = [
   },
   {
     id: 3,
-    author: 'SIBA NFT',
+    author: 'SIBA Inu',
     authorImage: AuthorImage,
     image: "/nft (3).jpg",
     name: 'Shiba Social Club #568',
@@ -27,7 +27,7 @@ export const NFTList = [
   },
   {
     id: 4,
-    author: 'SIBA NFT',
+    author: 'SIBA Inu',
     authorImage: AuthorImage,
     image: "/nft (4).jpg",
     name: 'Shiba Social Club #1321',
@@ -35,7 +35,7 @@ export const NFTList = [
   },
   {
     id: 5,
-    author: 'SIBA NFT',
+    author: 'SIBA Inu',
     authorImage: AuthorImage,
     image: "/nft (5).jpg",
     name: 'Shiba Social Club #742',
@@ -43,7 +43,7 @@ export const NFTList = [
   },
   {
     id: 6,
-    author: 'SIBA NFT',
+    author: 'SIBA Inu',
     authorImage: AuthorImage,
     image: "/nft (6).jpg",
     name: 'Shiba Social Club #351',
@@ -51,7 +51,7 @@ export const NFTList = [
   },
   {
     id: 7,
-    author: 'SIBA NFT',
+    author: 'SIBA Inu',
     authorImage: AuthorImage,
     image: "/nft (7).jpg",
     name: 'Shiba Social Club #1517',
@@ -59,7 +59,7 @@ export const NFTList = [
   },
   {
     id: 8,
-    author: 'SIBA NFT',
+    author: 'SIBA Inu',
     authorImage: AuthorImage,
     image: "/nft (8).jpg",
     name: 'Shiba Social Club #517',

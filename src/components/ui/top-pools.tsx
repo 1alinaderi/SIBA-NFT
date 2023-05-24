@@ -21,6 +21,12 @@ export default function TopPools({ limit }: TopPoolsProps) {
         }
       )}
     >
+       <div className="flex flex-col items-center justify-between  pb-5 dark:border-gray-700 md:flex-row">
+          <h2 className="mb-1 shrink-0 text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:mb-0 md:text-2xl">
+            Tokenomics
+          </h2>
+        </div>
+     
       <img src='/tokenomic.png' className='w-full' />
     </div>
   );

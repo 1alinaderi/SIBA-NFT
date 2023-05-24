@@ -12,7 +12,7 @@ const Logo: React.FC<React.SVGAttributes<{}>> = (props) => {
   return (
     <div className="flex cursor-pointer outline-none" {...props}>
       <span className="relative flex overflow-hidden">
-        <img style={{ width: '40px' }} src={'/logo.png'} alt="Siba NFT" />
+        <img style={{ width: '40px' }} src={'/logo.png'} alt="Siba Inu" />
       </span>
     </div>
   );

@@ -41,16 +41,20 @@ export default function ModernScreen() {
   return (
     <>
       <NextSeo
-        title="Siba NFT"
-        description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
+        title="Siba Inu"
+        description="Siba Inu - React Next Web3 NFT Crypto Dashboard Template"
       />
       <div className="flex flex-wrap">
-        <div className="mb-8 w-full sm:mb-0 sm:ltr:pr-6 sm:rtl:pl-6 ">
+        <div className="mb-8 w-full  sm:ltr:pr-6 sm:rtl:pl-6 ">
           <CoinSlider coins={coinSlideData} />
+          <div className='w-full  text-center flex justify-center mt-8' >
+          <span style={{fontSize:"22px" , fontWeight:"700" , border:"3px solid #d45200"}} className='text-center rounded   py-3 px-5'>SIBA SON OF SHIBA</span>
+             </div>
         </div>
         <div className="w-full">
           <div className="flex h-full flex-col justify-center rounded-lg bg-white p-6 shadow-card dark:bg-light-dark xl:p-8">
-            <div className="flex w-full justify-between py-4">
+          
+            <div className="flex w-full flex-wrap justify-between py-4">
               <span className="flex w-[50%] justify-center px-5">
                 <Link className='w-full' href={"/swap"}>
                 <Button color='success' children="BUY" className="w-full" />
@@ -60,7 +64,16 @@ export default function ModernScreen() {
               <Link className='w-full' href={"/swap"}>
                 <Button color='info' className="w-full" children="CHART" />
                 </Link>
-
+              </span>
+              <span className="flex w-[50%] justify-center px-5 mt-5">
+              <Link className='w-full' href={"/swap"}>
+                <Button color='warning' className="w-full" children="LOCK" />
+                </Link>
+              </span>
+              <span className="flex w-[50%] justify-center px-5 mt-5">
+              <Link className='w-full' href={"/swap"}>
+                <Button color='danger' className="w-full" children="AUDIT" />
+                </Link>
               </span>
             </div>
             {/* <h3 className="mb-2 mt-4 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">
@@ -100,19 +113,14 @@ export default function ModernScreen() {
           <TransactionTable />
         </div>
         <div className="center w-full pt-6 text-center">
-          <a href="mailto:info@sibatoken.com">info@sibatoken.com</a>
+          <span >Join Social Media</span>
           <div className='w-full flex justify-center items-center py-3'>
-            <Link href={"/"}>
+            <Link href={"https://twitter.com/SIBAINUtoken"}>
             <span className='social_icon'>
               <FaTwitter />
             </span>
             </Link>
-            <Link href={"/"}>
-            <span className='social_icon'>
-              <FaFacebook />
-            </span>
-            </Link>
-            <Link href={"/"}>
+            <Link href={"https://t.me/SIBAINUtoken"}>
             <span className='social_icon'>
               <FaTelegram />
             </span>
@@ -127,8 +135,8 @@ export default function ModernScreen() {
               <FaGithub />
             </span>
             </Link>
-
           </div>
+          <a href='mailto:info@sibatoken.com'>info@sibatoken.com</a>
         </div>
       </div>
     </>

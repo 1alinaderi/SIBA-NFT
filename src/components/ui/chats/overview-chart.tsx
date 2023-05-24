@@ -73,9 +73,9 @@ export default function OverviewChart({ chartWrapperClass }: Props) {
         SAFETY
       </h3>
       <p className="mb-1 mt-2 text-xs font-medium text-gray-400 sm:text-sm">
-        NFT.Siba.Finance aims to be a safe, long-term investment that grows with
+      Siba Inu Finance aims to be a safe, long-term investment that grows with
         its community. We opened with a fair launch with no presale. The
-        Liquidity Pool has been burned. NFT.Siba.Finance tokens at launch
+        Liquidity Pool has been burned. Siba Inu Finance tokens at launch
         toensure that a developer rug-pull can’t happen
       </p>
     </div>

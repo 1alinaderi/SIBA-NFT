@@ -16,18 +16,43 @@ const WhitePaper: NextPageWithLayout = () => {
     <>
       <NextSeo
         title="White Paper"
-        description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
+        description="Siba Inu - React Next Web3 NFT Crypto Dashboard Template"
       />
       <div className="rounded-lg bg-white p-6 shadow-card dark:bg-light-dark sm:p-8">
-        
+        <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 uppercase tracking-wider sm:mb-2 sm:text-base">
+          Siba Inu
+        </h3>
+        <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
+          We want equitable revenue share and safe ecosystem between the
+          artists, art gallery and the investor(holder). We put the needs
+          together to share and receive the fees. The investor will receive free
+          pass to the art gallery. Do you wish to purchase an art work? This is
+          why we have prepared the way to access NFT Blockchain by using
+          internet to buy and sell. We will implement this by 'THE PUNK WORLD'.
+        </div>
+        <img alt='' src='/white (1).jpg' className='w-[300px] my-5 mx-auto' />
         <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 mt-6 uppercase tracking-wider sm:mb-2 sm:text-base">
-          NFT Siba Finance
+          # 'THE PUNK WORLD' (NFT Virtual Game soon)
+        </h3>
+        <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
+          ' THE PUNK WORLD ' is NFT game. It's Pixel Virtual world is similar
+          with Minecraft. By accessing this program, you can inter the Tokyo art
+          gallery without visiting Tokyo. The virtual world will be same as the
+          actual Tokyo art gallery. You can monitor public art, Locked Art from
+          here and also able to purchase it. There will be a fee occurring to
+          tjis transaction, this fee will be distributed to holder and artist
+          fee, and art gallery fee. # 'THE PUNK WORLD' (NFT Virtual Game soon)
+        </div>
+        <img alt='' src='/white (2).jpg' className='w-[300px] my-5 mx-auto' />
+
+        <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 mt-6 uppercase tracking-wider sm:mb-2 sm:text-base">
+          Siba inu Finance
         </h3>
         <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
           WHY BSC BLOCKCHAIN? Binance Smart Chain (BSC) is known as a blockchain
           operating on mainnet, activating the blockchain in parallel with
           Binance Chain. BSC allows the creation of smart contracts for
-          blockchain tokens associated with the Binance brand. NFTSIBA chose the
+          blockchain tokens associated with the Binance brand. Siba Inu chose the
           BSC blockchain for the following reasons:
           <ul>
             <li>
@@ -67,7 +92,7 @@ const WhitePaper: NextPageWithLayout = () => {
         </h3>
         <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
           Our platform will be powered by our deflationary utility-token
-          NFT.Siba.andusers of our platform will be able to stake our token to
+          Siba Inu andusers of our platform will be able to stake our token to
           claim or issue NFT’s.We are setting out to become the easiest NFT
           platform to use by amongst other things implementing simple drag &
           drop solutions. First, we are releasing a web version and later apps
@@ -80,16 +105,16 @@ const WhitePaper: NextPageWithLayout = () => {
           SAFETY
         </h3>
         <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
-          NFT.Sibaaims to be a safe, long-term investment that grows with its
+        Siba Inu  aims to be a safe, long-term investment that grows with its
           community. We opened with a fair launch with no presale. The Liquidity
-          Pool has been burned. NFT.Siba tokens at launch toensure that a
+          Pool has been burned. Siba Inu  tokens at launch toensure that a
           developer rug-pull can’t happen. There may still be holders with large
           amounts of tokens, as any long-term holder could become a whale one
           day with the amount of tokens being burnt and liquidity being added.
           However, this does mean that there is certainty of no developer rug
           pull. A whale dumping may cause short term harm to the value of NFT .
           Siba, but the community can always recover. To ensure a long life of
-          NFT.Siba , liquidity is added to theLiquidity Pool with every
+          Siba Inu  , liquidity is added to theLiquidity Pool with every
           transaction. As it is all burnt, no one (including the developer
           oradmins) can pull the liquidity out. The more transactions, the
           higher the floor gets!
@@ -100,7 +125,7 @@ const WhitePaper: NextPageWithLayout = () => {
           TOKENOMICS
         </h3>
         <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
-          NFT.Siba launched with a maximum total supply 200,000,000,000,000,000
+        Siba Inu  launched with a maximum total supply 200,000,000,000,000,000
           <br />
           %70 Liquidity
           <br />
@@ -111,7 +136,6 @@ const WhitePaper: NextPageWithLayout = () => {
           %5 Team
           <br />
         </div>
-        <img alt='' src='/white (2).jpg' className='w-[300px] my-5 mx-auto' />
         <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 mt-6 uppercase tracking-wider sm:mb-2 sm:text-base">
           Roadmap
         </h3>
@@ -160,8 +184,8 @@ const WhitePaper: NextPageWithLayout = () => {
           BACKGROUND
         </h3>
         <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
-          NFT.Siba was stealth-launched by an Japanese developer&American on May
-          4, 20230 Since its inception,an international development team was
+          Siba Inu was stealth-launched by an Japanese developer&American on May
+          4, 2023 Since its inception,an international development team was
           formed out of investors from the community. Continuingwith the
           community-driven aspect, the development team aims for community
           involvement andmaintains full transparency for the project, holding
@@ -174,7 +198,7 @@ const WhitePaper: NextPageWithLayout = () => {
           The development team comes from a diverse background of established
           positions in different sectors and respectable companies, providing
           their expertise and experience for the mutual benefit of the project
-          and holders. NFT.Siba long term goal is to establish NFT Pixel Art
+          and holders. Siba Inu long term goal is to establish NFT Pixel Art
           Platform and gallary. Decentralized Finance sector, focusing on
           ecological conservation efforts to reduce the man- induced effects of
           global climate change, while providing economic empowerment for all
@@ -206,30 +230,6 @@ const WhitePaper: NextPageWithLayout = () => {
           period of time that it has existed for. Therefore, we are pushing for
           a revolution of NFT, NFT 2.0, where the value of art can be more
           clearly defined.
-        </div>
-        <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 uppercase tracking-wider sm:mb-2 sm:text-base">
-          NFTSIBA
-        </h3>
-        <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
-          We want equitable revenue share and safe ecosystem between the
-          artists, art gallery and the investor(holder). We put the needs
-          together to share and receive the fees. The investor will receive free
-          pass to the art gallery. Do you wish to purchase an art work? This is
-          why we have prepared the way to access NFT Blockchain by using
-          internet to buy and sell. We will implement this by 'THE PUNK WORLD'.
-        </div>
-        <img alt='' src='/white (1).jpg' className='w-[300px] my-5 mx-auto' />
-        <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 mt-6 uppercase tracking-wider sm:mb-2 sm:text-base">
-          # 'THE PUNK WORLD' (NFT Virtual Game soon)
-        </h3>
-        <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
-          ' THE PUNK WORLD ' is NFT game. It's Pixel Virtual world is similar
-          with Minecraft. By accessing this program, you can inter the Tokyo art
-          gallery without visiting Tokyo. The virtual world will be same as the
-          actual Tokyo art gallery. You can monitor public art, Locked Art from
-          here and also able to purchase it. There will be a fee occurring to
-          tjis transaction, this fee will be distributed to holder and artist
-          fee, and art gallery fee. # 'THE PUNK WORLD' (NFT Virtual Game soon)
         </div>
       </div>
     </>

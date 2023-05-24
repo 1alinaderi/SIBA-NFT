@@ -41,8 +41,8 @@ useEffect((e)=>{
   return (
     <>
       <NextSeo
-        title="Siba NFT Minimal"
-        description="Siba NFT - React Next Web3 NFT Crypto Dashboard Template"
+        title="Siba Inu Minimal"
+        description="Siba Inu - React Next Web3 NFT Crypto Dashboard Template"
         
       />
       <div className="">

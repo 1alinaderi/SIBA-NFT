@@ -42,7 +42,6 @@ const SwapPage: NextPageWithLayout = (props) => {
   useEffect(() => {
     setaddress(ethereumClient?.getAccount()?.address);
     setDefaultChain(bsc);
-    console.log(address)
   }, [ethereumClient?.getAccount()?.address]);
   useEffect(() => {
     const sellAmount = 10 ** 18; // 100 DAI = 10^20 wei
@@ -170,7 +169,7 @@ const SwapPage: NextPageWithLayout = (props) => {
     <>
       <NextSeo
         title="Swap"
-        description="Siba nft swap page"
+        description="Siba Inu swap page"
       />
       <Trade>
         <div className="mb-5 border-b border-dashed border-gray-200 pb-5 dark:border-gray-800 xs:mb-7 xs:pb-6">

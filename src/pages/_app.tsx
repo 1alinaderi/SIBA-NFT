@@ -66,7 +66,7 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
           name="viewport"
           content="width=device-width, initial-scale=1 maximum-scale=1"
         />
-        <title>Siba Nft</title>
+        <title>Siba Inu</title>
         <link rel="icon" href={'/logo.png'} />
       </Head>
       <QueryClientProvider client={queryClient}>
