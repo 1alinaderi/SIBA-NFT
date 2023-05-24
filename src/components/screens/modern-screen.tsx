@@ -130,7 +130,7 @@ export default function ModernScreen() {
               <FaEnvelope />
             </span>
             </Link>
-            <Link href={"/"}>
+            <Link href={"https://github.com/SibaToken"}>
             <span className='social_icon'>
               <FaGithub />
             </span>
