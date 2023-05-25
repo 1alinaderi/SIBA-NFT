@@ -8,9 +8,9 @@ import TransactionInfo from '@/components/ui/transaction-info';
 import { SwapIcon } from '@/components/icons/swap-icon';
 import Trade from '@/components/ui/trade';
 import RootLayout from '@/layouts/_root-layout';
-import { FaLongArrowAltRight } from 'react-icons/fa';
+import { FaAngleDown, FaLongArrowAltRight } from 'react-icons/fa';
 import Web3 from 'web3';
-import { AbiRouterContract, AbiToken } from '../abi/abi';
+import { AbiDogeContract, AbiRouterContract, AbiToken } from '../abi/abi';
 import { ToastContainer, toast } from 'react-toastify';
 import { WalletContext } from '@/lib/hooks/use-connect';
 import { useWeb3Modal } from '@web3modal/react';
@@ -18,64 +18,96 @@ import { bsc } from 'wagmi/chains';
 import { useContext } from 'react';
 
 const SwapPage: NextPageWithLayout = (props) => {
-  const [isapproved, setisapproved] = useState(false);
-  const { ethereumClient } = props;
-  const [address, setaddress] = useState();
-  const [price, setPrice] = useState();
-  const [pricemigmig, setPricemigmig] = useState();
-  const [BNBinput, setBNBinput] = useState();
-  const [migmigeinput, setmigmigeinput] = useState();
-  const [BNBTOAIPEPE, setBNBTOAIPEPE] = useState(true);
-  const { setDefaultChain } = useWeb3Modal();
-  let [toggleCoin, setToggleCoin] = useState(true);
+  const TokenAddress = '';
+  const RouterAddress = '0x10ed43c718714eb63d5aa57b78b54704e256024e';
+  const DogeAddress = '0xbA2aE424d960c26247Dd6c32edC70B295c744C43';
+  const ShibaAddress = '0xb1547683DA678f2e1F003A780143EC10Af8a832B';
+  const WBNBAddress = '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c';
   const web3 = new Web3(Web3.givenProvider);
 
-  const migmigAddress = '0x557e048444f6CCc68D5b5DCce8d3eb4d283c911E';
-  const RouterAddress = '0x10ed43c718714eb63d5aa57b78b54704e256024e';
-  const WBNBAddress = '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c';
-
-  const Aipepecontract = new web3.eth.Contract(AbiToken, migmigAddress);
+  const Tokencontract = new web3.eth.Contract(AbiToken, TokenAddress);
   const Routercontract = new web3.eth.Contract(
     AbiRouterContract,
     RouterAddress
   );
+  const DogeContract = new web3.eth.Contract(AbiDogeContract, DogeAddress);
+
+  const [isapproved, setisapproved] = useState(false);
+  const { ethereumClient } = props;
+  const [address, setaddress] = useState();
+  const [price, setPrice] = useState(0.0);
+  const [loading, setloading] = useState();
+  const [BNBinput, setBNBinput] = useState();
+  const [migmigeinput, setmigmigeinput] = useState();
+  const [dropdown, setdropdown] = useState(false);
+  const [dropdown2, setdropdown2] = useState(false);
+  const [itemswap, setItemswap] = useState({
+    title: 'BNB',
+    src: '/BNB.png',
+    address: WBNBAddress,
+    decimals: 18,
+    contract: '',
+  });
+  const [itemswap2, setItemswap2] = useState({
+    title: 'DOGE',
+    src: '/DODGE.png',
+    address: DogeAddress,
+    decimals: 8,
+    contract: DogeContract,
+  });
+  const { setDefaultChain } = useWeb3Modal();
+
   useEffect(() => {
     setaddress(ethereumClient?.getAccount()?.address);
     setDefaultChain(bsc);
   }, [ethereumClient?.getAccount()?.address]);
-  useEffect(() => {
-    const sellAmount = 10 ** 18; // 100 DAI = 10^20 wei
-    const sellAmountaipepe = 10 ** 9; // 100 DAI = 10^20 wei
-    async function giveInformation() {
-      const response = await fetch(
-        `https://bsc.api.0x.org/swap/v1/quote?buyToken=${migmigAddress}&sellToken=${WBNBAddress}&sellAmount=${sellAmount}&excludedSources=LiquidityProvider`
+
+  useEffect(
+    (e) => {
+      async function giveApproved() {
+        if (itemswap.address !== WBNBAddress) {
+          const currentAllowance = await itemswap.contract?.methods
+            ?.allowance(address, RouterAddress)
+            ?.call();
+          if (currentAllowance > BNBinput * 10 ** itemswap.decimals) {
+            setisapproved(true);
+          } else {
+            setisapproved(false);
+          }
+        }
+      }
+      async function giveInformation(buyToken, sellToken, sellAmount) {
+        await setloading(true);
+        const response = await fetch(
+          `https://bsc.api.0x.org/swap/v1/quote?buyToken=${buyToken}&sellToken=${sellToken}&sellAmount=${sellAmount}&excludedSources=LiquidityProvider`
+        );
+        const quote = await response.json();
+        await setPrice(quote.buyAmount / 10 ** itemswap2.decimals);
+        await setloading(false);
+      }
+      giveApproved();
+      giveInformation(
+        itemswap2.address,
+        itemswap.address,
+        BNBinput * 10 ** itemswap.decimals
       );
-      const quote = await response.json();
-      setPrice(quote.price);
-    }
-    async function giveInformationaipepe() {
-      const response = await fetch(
-        `https://bsc.api.0x.org/swap/v1/quote?buyToken=${WBNBAddress}&sellToken=${migmigAddress}&sellAmount=${sellAmountaipepe}&excludedSources=LiquidityProvider`
-      );
-      const quote = await response.json();
-      setPricemigmig(quote.price);
-    }
-    giveInformation();
-    giveInformationaipepe();
-  }, []);
-  async function _BNBtoAipepe() {
+    },
+    [BNBinput]
+  );
+
+  async function BNBTOTOKEN() {
     // Perform the swap.
     const gasPrice = await web3.eth.getGasPrice();
     const gas = await Routercontract?.methods
       ?.swapExactETHForTokens(
         0,
-        [WBNBAddress, migmigAddress],
+        [WBNBAddress, itemswap2.address],
         address,
         Math.floor(Date.now() / 1000) + 60 * 5
       )
       .estimateGas({
         from: address,
-        value: (BNBinput * 1000000000000000000).toFixed(),
+        value: (BNBinput * 10 ** itemswap.decimals).toFixed(),
       })
       .then((e) => {
         toast.success(e.message);
@@ -87,14 +119,14 @@ const SwapPage: NextPageWithLayout = (props) => {
     await Routercontract?.methods
       ?.swapExactETHForTokens(
         0,
-        [WBNBAddress, migmigAddress],
+        [WBNBAddress, itemswap2.address],
         address,
         Math.floor(Date.now() / 1000) + 60 * 5
       )
       .send({
         from: address,
         gas: gas,
-        value: (BNBinput * 1000000000000000000).toFixed(),
+        value: (BNBinput * 10 ** itemswap.decimals).toFixed(),
         gasPrice: gasPrice,
         chainId: 56,
       })
@@ -107,19 +139,21 @@ const SwapPage: NextPageWithLayout = (props) => {
       });
   }
 
-  async function _AipepeToBNB() {
+  console.log(itemswap);
+  async function _swaptokenforBNB() {
     // Perform the swap.
-    const currentAllowance = await Aipepecontract?.methods
+    const currentAllowance = await itemswap?.contract?.methods
       ?.allowance(address, RouterAddress)
       ?.call();
-    if (currentAllowance < migmigeinput * 1000000000) {
+    console.log(currentAllowance);
+    if (currentAllowance < BNBinput * 10 ** itemswap.decimals) {
       const newAllowance = new web3.utils.BN('2')
         ?.pow(new web3.utils.BN('256'))
         ?.sub(new web3.utils.BN('1'));
-      const gasAprrroved = await Aipepecontract.methods
+      const gasAprrroved = await itemswap.contract.methods
         ?.approve(RouterAddress, newAllowance)
         ?.estimateGas({ from: address });
-      await Aipepecontract.methods
+      await itemswap.contract.methods
         ?.approve(RouterAddress, newAllowance)
         ?.send({ from: address, gas: gasAprrroved })
         ?.then((e) => {
@@ -130,159 +164,333 @@ const SwapPage: NextPageWithLayout = (props) => {
           toast.error(e.message);
         });
     }
-    const gasPrice = await web3?.eth?.getGasPrice();
-    const gas = await Routercontract?.methods
-      ?.swapExactTokensForETH(
-        (migmigeinput * 1000000000).toFixed(),
-        0,
-        [migmigAddress, WBNBAddress],
-        address,
-        Math.floor(Date.now() / 1000) + 60 * 5
-      )
-      ?.estimateGas({
-        from: address,
-      });
-    if (isapproved) {
-      await Routercontract?.methods
+    if (itemswap2.address === WBNBAddress) {
+      const gasPrice = await web3?.eth?.getGasPrice();
+      const gas = await Routercontract?.methods
         ?.swapExactTokensForETH(
-          (migmigeinput * 1000000000).toFixed(),
+          (BNBinput * 10 ** itemswap.decimals).toFixed(),
           0,
-          [migmigAddress, WBNBAddress],
+          [itemswap.address, WBNBAddress],
           address,
           Math.floor(Date.now() / 1000) + 60 * 5
         )
-        ?.send({
+        ?.estimateGas({
           from: address,
-          gas: gas,
-          gasPrice: gasPrice,
-          chainId: 56,
-        })
-        ?.then((e) => {
-          toast.success(e.message);
-        })
-        ?.catch((e) => {
-          toast.error(e.message);
         });
+      if (isapproved) {
+        await Routercontract?.methods
+          ?.swapExactTokensForETH(
+            (BNBinput * 10 ** itemswap.decimals).toFixed(),
+            0,
+            [itemswap.address, WBNBAddress],
+            address,
+            Math.floor(Date.now() / 1000) + 60 * 5
+          )
+          ?.send({
+            from: address,
+            gas: gas,
+            gasPrice: gasPrice,
+            chainId: 56,
+          })
+          ?.then((e) => {
+            toast.success(e.message);
+          })
+          ?.catch((e) => {
+            toast.error(e.message);
+          });
+      }
+    } else {
+      const gasPrice = await web3?.eth?.getGasPrice();
+      const gas = await Routercontract?.methods
+        ?.swapExactTokensForTokens(
+          (BNBinput * 10 ** itemswap.decimals).toFixed(),
+          0,
+          [itemswap.address, itemswap2.address],
+          address,
+          Math.floor(Date.now() / 1000) + 60 * 5
+        )
+        ?.estimateGas({
+          from: address,
+        });
+      if (isapproved) {
+        await Routercontract?.methods
+          ?.swapExactTokensForTokens(
+            (BNBinput * 10 ** itemswap.decimals).toFixed(),
+            0,
+            [itemswap.address, itemswap2.address],
+            address,
+            Math.floor(Date.now() / 1000) + 60 * 5
+          )
+          ?.send({
+            from: address,
+            gas: gas,
+            gasPrice: gasPrice,
+            chainId: 56,
+          })
+          ?.then((e) => {
+            toast.success(e.message);
+          })
+          ?.catch((e) => {
+            toast.error(e.message);
+          });
+      }
     }
   }
   return (
     <>
-      <NextSeo
-        title="Swap"
-        description="Siba Inu swap page"
-      />
+      <NextSeo title="Swap" description="Siba Inu swap page" />
       <Trade>
         <div className="mb-5 border-b border-dashed border-gray-200 pb-5 dark:border-gray-800 xs:mb-7 xs:pb-6">
           <div className={cn('relative flex flex-col gap-3')}>
-            {toggleCoin ? (
+            <div
+              className={cn(
+                'group flex min-h-[60px] rounded-lg border border-gray-200 transition-colors duration-200 hover:border-gray-900 dark:border-gray-700 dark:hover:border-gray-600'
+              )}
+            >
               <div
-                className={cn(
-                  'group flex min-h-[60px] rounded-lg border border-gray-200 transition-colors duration-200 hover:border-gray-900 dark:border-gray-700 dark:hover:border-gray-600'
-                )}
+                style={{ position: 'relative' }}
+                className="min-w-[80px] border-r border-gray-200 p-2 transition-colors duration-200 group-hover:border-gray-900 dark:border-gray-700 dark:group-hover:border-gray-600"
               >
-                <div className="min-w-[80px] border-r border-gray-200 p-3 transition-colors duration-200 group-hover:border-gray-900 dark:border-gray-700 dark:group-hover:border-gray-600">
-                  <button className="flex items-center font-medium outline-none dark:text-gray-100">
-                    <img style={{ maxWidth: '28px' }} src="/BNB.png" />
-                    <span className="ltr:ml-2 rtl:mr-2">BNB </span>
-                  </button>
-                </div>
-                <div className="flex flex-1 flex-col text-right">
-                  <input
-                    value={BNBinput}
-                    onChange={(e) => setBNBinput(e.target.value)}
-                    type="text"
-                    placeholder="0.0"
-                    className="input_token w-full rounded-br-lg rounded-tr-lg border-0 pb-0 text-right text-lg outline-none focus:ring-0 dark:bg-light-dark"
-                  />
-                </div>
-              </div>
-            ) : (
-              <div
-                className={cn(
-                  'group flex min-h-[60px] rounded-lg border border-gray-200 transition-colors duration-200 hover:border-gray-900 dark:border-gray-700 dark:hover:border-gray-600'
-                )}
-              >
-                <div className="min-w-[80px] border-r border-gray-200 p-3 transition-colors duration-200 group-hover:border-gray-900 dark:border-gray-700 dark:group-hover:border-gray-600">
-                  <button className="flex items-center font-medium outline-none dark:text-gray-100">
-                    <img style={{ maxWidth: '28px' }} src="/logo.png" />
-                    <span className="ltr:ml-2 rtl:mr-2">
+                {dropdown && (
+                  <div className="dropdown_container px-3">
+                    <span
+                      style={{ cursor: 'pointer' }}
+                      onClick={(e) => {
+                        setItemswap({
+                          title: 'DOGE',
+                          src: '/DODGE.png',
+                          address: DogeAddress,
+                          decimals: 8,
+                          contract: DogeContract,
+                        });
+                        setPrice('');
+                        setdropdown(false);
+                      }}
+                      className="flex w-full items-center py-2"
+                    >
+                      <img src="/DODGE.png" className="w-[50%] pe-4" />
+                      DOGE
+                    </span>
+                    <span
+                      style={{ cursor: 'pointer' }}
+                      onClick={(e) => {
+                        setItemswap({
+                          title: 'SHIB',
+                          src: '/SHIP.png',
+                          address: ShibaAddress,
+                          decimals: 18,
+                          contract: '',
+                        });
+                        setPrice('');
+                        setdropdown(false);
+                      }}
+                      className="flex w-full items-center py-2"
+                    >
+                      <img src="/SHIP.png" className="w-[50%] pe-4" />
+                      SHIB
+                    </span>
+                    <span
+                      onClick={(e) => {
+                        setItemswap({
+                          title: 'BNB',
+                          src: '/BNB.png',
+                          address: WBNBAddress,
+                          decimals: 18,
+                          contract: '',
+                        });
+                        setPrice('');
+                        setdropdown(false);
+                      }}
+                      style={{ cursor: 'pointer' }}
+                      className="flex w-full items-center py-2"
+                    >
+                      <img src="/BNB.png" className="w-[50%] pe-4" />
+                      BNB
+                    </span>
+                    <span
+                      onClick={(e) => {
+                        setItemswap({
+                          title: 'SIBA',
+                          src: '/logo.png',
+                          address: TokenAddress,
+                          decimals: 9,
+                          contract: Tokencontract,
+                        });
+                        setPrice('');
+                        setdropdown(false);
+                      }}
+                      style={{ cursor: 'pointer' }}
+                      className="flex w-full items-center py-2"
+                    >
+                      <img src="/logo.png" className="w-[50%] pe-4" />
                       SIBA
                     </span>
-                  </button>
-                </div>
-                <div className="flex flex-1 flex-col text-right">
-                  <input
-                    value={migmigeinput}
-                    onChange={(e) => setmigmigeinput(e.target.value)}
-                    type="text"
-                    placeholder="0.0"
-                    className="input_token w-full rounded-br-lg rounded-tr-lg border-0 pb-0 text-right text-lg outline-none focus:ring-0 dark:bg-light-dark"
-                  />
-                </div>
+                  </div>
+                )}
+                <button
+                  onClick={(e) => {
+                    dropdown ? setdropdown(false) : setdropdown(true);
+                  }}
+                  className="flex flex-wrap items-center font-medium outline-none dark:text-gray-100"
+                >
+                  <img style={{ maxWidth: '28px' }} src={itemswap.src} />
+                  <span className="ltr:ml-2 rtl:mr-2">{itemswap.title} </span>
+                  <span className="m-0 flex w-full justify-center p-0">
+                    <FaAngleDown size={14} />
+                  </span>
+                </button>
               </div>
-            )}
+              <div className="flex flex-1 flex-col text-right">
+                <input
+                  value={BNBinput}
+                  onChange={(e) => setBNBinput(e.target.value)}
+                  type="text"
+                  placeholder="0.0"
+                  className="input_token w-full rounded-br-lg rounded-tr-lg border-0 pb-0 text-right text-lg outline-none focus:ring-0 dark:bg-light-dark"
+                />
+              </div>
+            </div>
             <div className="absolute left-1/2 top-1/2 z-[1] -ml-4 -mt-4 rounded-full bg-white shadow-large dark:bg-gray-600">
               <Button
                 size="mini"
                 color="gray"
                 shape="circle"
                 variant="transparent"
-                onClick={() => setToggleCoin(!toggleCoin)}
+                onClick={() => {
+                  setItemswap({
+                    address: itemswap2.address,
+                    decimals: itemswap2.decimals,
+                    contract: itemswap2.contract,
+                    src: itemswap2.src,
+                    title: itemswap2.title,
+                  });
+                  setItemswap2({
+                    address: itemswap.address,
+                    decimals: itemswap.decimals,
+                    contract: itemswap.contract,
+                    src: itemswap.src,
+                    title: itemswap.title,
+                  });
+                }}
               >
                 <SwapIcon className="h-auto w-3" />
               </Button>
             </div>
-            {toggleCoin ? (
+
+            <div
+              className={cn(
+                'group flex min-h-[60px] rounded-lg border border-gray-200 transition-colors duration-200 hover:border-gray-900 dark:border-gray-700 dark:hover:border-gray-600'
+              )}
+            >
               <div
-                className={cn(
-                  'group flex min-h-[60px] rounded-lg border border-gray-200 transition-colors duration-200 hover:border-gray-900 dark:border-gray-700 dark:hover:border-gray-600'
-                )}
+                style={{
+                  position: 'relative',
+                }}
+                className="min-w-[80px] border-r border-gray-200 p-2 transition-colors duration-200 group-hover:border-gray-900 dark:border-gray-700 dark:group-hover:border-gray-600"
               >
-                <div className="min-w-[80px] border-r border-gray-200 p-3 transition-colors duration-200 group-hover:border-gray-900 dark:border-gray-700 dark:group-hover:border-gray-600">
-                  <button className="flex items-center font-medium outline-none dark:text-gray-100">
-                    <img style={{ maxWidth: '28px' }} src="/logo.png" />
-                    <span className="ltr:ml-2 rtl:mr-2">
-                     SIBA
+                {dropdown2 && (
+                  <div className="dropdown_container px-3">
+                    <span
+                      style={{ cursor: 'pointer' }}
+                      onClick={(e) => {
+                        setItemswap2({
+                          title: 'DOGE',
+                          src: '/DODGE.png',
+                          address: DogeAddress,
+                          decimals: 8,
+                          contract: DogeContract,
+                        });
+                        setPrice('');
+                        setdropdown2(false);
+                      }}
+                      className="flex w-full items-center py-2"
+                    >
+                      <img src="/DODGE.png" className="w-[50%] pe-4" />
+                      DOGE
                     </span>
-                  </button>
-                </div>
-                <div className="flex flex-1 flex-col text-right">
-                  <input
-                    value={BNBinput ? (BNBinput * price).toFixed(9) : ''}
-                    disabled
-                    type="text"
-                    placeholder="0.0"
-                    className="input_token w-full rounded-br-lg rounded-tr-lg border-0 pb-0 text-right text-lg outline-none focus:ring-0 dark:bg-light-dark"
-                  />
-                </div>
-              </div>
-            ) : (
-              <div
-                className={cn(
-                  'group flex min-h-[60px] rounded-lg border border-gray-200 transition-colors duration-200 hover:border-gray-900 dark:border-gray-700 dark:hover:border-gray-600'
+                    <span
+                      style={{ cursor: 'pointer' }}
+                      onClick={(e) => {
+                        setItemswap2({
+                          title: 'SHIB',
+                          src: '/SHIP.png',
+                          address: ShibaAddress,
+                          decimals: 18,
+                          contract: '',
+                        });
+                        setPrice('');
+                        setdropdown2(false);
+                      }}
+                      className="flex w-full items-center py-2"
+                    >
+                      <img src="/SHIP.png" className="w-[50%] pe-4" />
+                      SHIB
+                    </span>
+                    <span
+                      onClick={(e) => {
+                        setItemswap2({
+                          title: 'BNB',
+                          src: '/BNB.png',
+                          address: WBNBAddress,
+                          decimals: 18,
+                          contract: '',
+                        });
+                        setPrice('');
+                        setdropdown2(false);
+                      }}
+                      style={{ cursor: 'pointer' }}
+                      className="flex w-full items-center py-2"
+                    >
+                      <img src="/BNB.png" className="w-[50%] pe-4" />
+                      BNB
+                    </span>
+                    <span
+                      onClick={(e) => {
+                        setItemswap2({
+                          title: 'SIBA',
+                          src: '/logo.png',
+                          address: TokenAddress,
+                          decimals: 9,
+                          contract: Tokencontract,
+                        });
+                        setPrice('');
+                        setdropdown2(false);
+                      }}
+                      style={{ cursor: 'pointer' }}
+                      className="flex w-full items-center py-2"
+                    >
+                      <img src="/logo.png" className="w-[50%] pe-4" />
+                      SIBA
+                    </span>
+                  </div>
                 )}
-              >
-                <div className="min-w-[80px] border-r border-gray-200 p-3 transition-colors duration-200 group-hover:border-gray-900 dark:border-gray-700 dark:group-hover:border-gray-600">
-                  <button className="flex items-center font-medium outline-none dark:text-gray-100">
-                    <img style={{ maxWidth: '28px' }} src="/BNB.png" />
-                    <span className="ltr:ml-2 rtl:mr-2">BNB</span>
-                  </button>
-                </div>
-                <div className="flex flex-1 flex-col text-right">
-                  <input
-                    value={
-                      migmigeinput
-                        ? (migmigeinput * pricemigmig).toFixed(18)
-                        : ''
-                    }
-                    disabled
-                    type="text"
-                    placeholder="0.0"
-                    className="input_token w-full rounded-br-lg rounded-tr-lg border-0 pb-0 text-right text-lg outline-none focus:ring-0 dark:bg-light-dark"
-                  />
-                </div>
+                <button
+                  onClick={(e) => {
+                    dropdown2 ? setdropdown2(false) : setdropdown2(true);
+                  }}
+                  className="flex flex-wrap items-center font-medium outline-none dark:text-gray-100"
+                >
+                  <img style={{ maxWidth: '28px' }} src={itemswap2.src} />
+                  <span className="ltr:ml-2 rtl:mr-2">{itemswap2.title}</span>
+                  <span className="m-0 flex w-full justify-center p-0">
+                    <FaAngleDown size={14} />
+                  </span>
+                </button>
               </div>
-            )}
+              <div className="flex flex-1 flex-col text-right">
+                <input
+                  value={
+                    loading
+                      ? '...loading'
+                      : price && price.toFixed(itemswap2.decimals)
+                  }
+                  disabled
+                  type="text"
+                  placeholder="0.0"
+                  className="input_token w-full rounded-br-lg rounded-tr-lg border-0 pb-0 text-right text-lg outline-none focus:ring-0 dark:bg-light-dark"
+                />
+              </div>
+            </div>
           </div>
         </div>
         {/* <div className="flex flex-col gap-4 xs:gap-[18px]">
@@ -299,11 +507,11 @@ const SwapPage: NextPageWithLayout = (props) => {
           fullWidth={true}
           className="mt-6 uppercase xs:mt-8 xs:tracking-widest"
         >
-          {toggleCoin ? (
+          {itemswap.address === WBNBAddress ? (
             <button
               style={{ width: '100%', height: '100%' }}
               onClick={(e) => {
-                _BNBtoAipepe();
+                BNBTOTOKEN();
               }}
             >
               SWAP
@@ -312,7 +520,7 @@ const SwapPage: NextPageWithLayout = (props) => {
             <button
               style={{ width: '100%', height: '100%' }}
               onClick={(e) => {
-                _AipepeToBNB();
+                _swaptokenforBNB();
               }}
             >
               {isapproved ? 'SWAP' : 'APPROVE'}

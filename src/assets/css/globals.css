@@ -283,3 +283,14 @@ Styles for Swiper slider
   justify-content: center;
   align-items: center;
 }
+
+.dropdown_container{
+  background-color: rgb(23 30 46 );;
+  position: absolute;
+  top: 80%;
+  width: 120%;
+  left: -10%;
+  border: 1px solid #707070;
+  border-radius: 8px;
+  z-index: 2;
+}
