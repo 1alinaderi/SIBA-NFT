@@ -23,6 +23,7 @@ const SwapPage: NextPageWithLayout = (props) => {
   const DogeAddress = '0xbA2aE424d960c26247Dd6c32edC70B295c744C43';
   const ShibaAddress = '0xb1547683DA678f2e1F003A780143EC10Af8a832B';
   const WBNBAddress = '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c';
+  const FlokiAddress = '0xfb5B838b6cfEEdC2873aB27866079AC55363D37E';
   const web3 = new Web3(Web3.givenProvider);
 
   const Tokencontract = new web3.eth.Contract(AbiToken, TokenAddress);
@@ -31,6 +32,8 @@ const SwapPage: NextPageWithLayout = (props) => {
     RouterAddress
   );
   const DogeContract = new web3.eth.Contract(AbiDogeContract, DogeAddress);
+  const SHIBAContract = new web3.eth.Contract(AbiDogeContract, ShibaAddress);
+  const FlokiContract = new web3.eth.Contract(AbiDogeContract, FlokiAddress);
 
   const [isapproved, setisapproved] = useState(false);
   const { ethereumClient } = props;
@@ -139,13 +142,11 @@ const SwapPage: NextPageWithLayout = (props) => {
       });
   }
 
-  console.log(itemswap);
   async function _swaptokenforBNB() {
     // Perform the swap.
     const currentAllowance = await itemswap?.contract?.methods
       ?.allowance(address, RouterAddress)
       ?.call();
-    console.log(currentAllowance);
     if (currentAllowance < BNBinput * 10 ** itemswap.decimals) {
       const newAllowance = new web3.utils.BN('2')
         ?.pow(new web3.utils.BN('256'))
@@ -279,7 +280,7 @@ const SwapPage: NextPageWithLayout = (props) => {
                           src: '/SHIP.png',
                           address: ShibaAddress,
                           decimals: 18,
-                          contract: '',
+                          contract: SHIBAContract,
                         });
                         setPrice('');
                         setdropdown(false);
@@ -288,6 +289,24 @@ const SwapPage: NextPageWithLayout = (props) => {
                     >
                       <img src="/SHIP.png" className="w-[50%] pe-4" />
                       SHIB
+                    </span>
+                    <span
+                      style={{ cursor: 'pointer' }}
+                      onClick={(e) => {
+                        setItemswap({
+                          title: 'FLOKI',
+                          src: '/Floki.png',
+                          address: FlokiAddress,
+                          decimals: 9,
+                          contract: FlokiContract,
+                        });
+                        setPrice('');
+                        setdropdown(false);
+                      }}
+                      className="flex w-full items-center py-2"
+                    >
+                      <img src="/Floki.png" className="w-[50%] pe-4" />
+                      FLOKI
                     </span>
                     <span
                       onClick={(e) => {
@@ -416,7 +435,7 @@ const SwapPage: NextPageWithLayout = (props) => {
                           src: '/SHIP.png',
                           address: ShibaAddress,
                           decimals: 18,
-                          contract: '',
+                          contract: SHIBAContract,
                         });
                         setPrice('');
                         setdropdown2(false);
@@ -425,6 +444,24 @@ const SwapPage: NextPageWithLayout = (props) => {
                     >
                       <img src="/SHIP.png" className="w-[50%] pe-4" />
                       SHIB
+                    </span>
+                    <span
+                      style={{ cursor: 'pointer' }}
+                      onClick={(e) => {
+                        setItemswap2({
+                          title: 'FLOKI',
+                          src: '/Floki.png',
+                          address: FlokiAddress,
+                          decimals: 9,
+                          contract: FlokiContract,
+                        });
+                        setPrice('');
+                        setdropdown2(false);
+                      }}
+                      className="flex w-full items-center py-2"
+                    >
+                      <img src="/Floki.png" className="w-[50%] pe-4" />
+                      FLOKI
                     </span>
                     <span
                       onClick={(e) => {
