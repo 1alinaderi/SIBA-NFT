@@ -294,3 +294,9 @@ Styles for Swiper slider
   border-radius: 8px;
   z-index: 2;
 }
+.bg-orange {
+  background-color: #d16609  !important;
+}
+.input_token{
+  background-color: transparent !important;
+}

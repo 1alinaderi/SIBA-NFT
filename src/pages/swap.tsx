@@ -107,6 +107,7 @@ const SwapPage: NextPageWithLayout = (props) => {
     },
     [BNBinput]
   );
+  console.log((BNBinput * 10 ** itemswap.decimals).toFixed())
 
   async function BNBTOTOKEN() {
     // Perform the swap.
@@ -251,16 +252,16 @@ const SwapPage: NextPageWithLayout = (props) => {
     <>
       <NextSeo title="Swap" description="Siba Inu swap page" />
       <Trade>
-        <div className="mb-5 border-b border-dashed border-gray-200 pb-5 dark:border-gray-800 xs:mb-7 xs:pb-6">
+        <div className="mb-5 border-b border-dashed border-white-200 pb-5 dark:border-white-800 xs:mb-7 xs:pb-6">
           <div className={cn('relative flex flex-col gap-3')}>
             <div
               className={cn(
-                'group flex min-h-[60px] rounded-lg border border-gray-200 transition-colors duration-200 hover:border-gray-900 dark:border-gray-700 dark:hover:border-gray-600'
+                'group flex min-h-[60px] rounded-lg border border-white-200 transition-colors duration-200 hover:border-white-900 dark:border-white-700 dark:hover:border-white-600'
               )}
             >
               <div
                 style={{ position: 'relative' }}
-                className="min-w-[80px] border-r border-gray-200 p-2 transition-colors duration-200 group-hover:border-gray-900 dark:border-gray-700 dark:group-hover:border-gray-600"
+                className=" min-w-[80px] border-r border-white-200 p-2 transition-colors duration-200 group-hover:border-white-900 dark:border-white-700 dark:group-hover:border-white-600"
               >
                 {dropdown && (
                   <div className="dropdown_container px-3">
@@ -315,6 +316,7 @@ const SwapPage: NextPageWithLayout = (props) => {
                       }}
                       className="flex w-full items-center py-2"
                     >
+
                       <img src="/Floki.png" className="w-[50%] pe-4" />
                       FLOKI
                     </span>
@@ -408,14 +410,14 @@ const SwapPage: NextPageWithLayout = (props) => {
 
             <div
               className={cn(
-                'group flex min-h-[60px] rounded-lg border border-gray-200 transition-colors duration-200 hover:border-gray-900 dark:border-gray-700 dark:hover:border-gray-600'
+                'group flex min-h-[60px] rounded-lg border border-white-200 transition-colors duration-200 hover:border-white-900 dark:border-white-700 dark:hover:border-white-600'
               )}
             >
               <div
                 style={{
                   position: 'relative',
                 }}
-                className="min-w-[80px] border-r border-gray-200 p-2 transition-colors duration-200 group-hover:border-gray-900 dark:border-gray-700 dark:group-hover:border-gray-600"
+                className="min-w-[80px] border-r border-white-200 p-2 transition-colors duration-200 group-hover:border-white-900 dark:border-white-700 dark:group-hover:border-white-600"
               >
                 {dropdown2 && (
                   <div className="dropdown_container px-3">

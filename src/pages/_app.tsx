@@ -84,8 +84,9 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
             <DrawersContainer />
             {/* </div> */}
             </WagmiConfig>
-        </ThemeProvider>
         <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
+
+        </ThemeProvider>
         <ToastContainer position="top-center" />
 
       </QueryClientProvider>
