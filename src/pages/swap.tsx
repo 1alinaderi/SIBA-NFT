@@ -68,16 +68,19 @@ const SwapPage: NextPageWithLayout = (props) => {
   useEffect(
     (e) => {
       async function giveApproved() {
-        if (itemswap.address !== WBNBAddress) {
-          const currentAllowance = await itemswap.contract?.methods
-            ?.allowance(address, RouterAddress)
-            ?.call();
-          if (currentAllowance > BNBinput * 10 ** itemswap.decimals) {
-            setisapproved(true);
-          } else {
-            setisapproved(false);
+        if (address) {
+          if (itemswap.address !== WBNBAddress) {
+            const currentAllowance = await itemswap.contract?.methods
+              ?.allowance(address, RouterAddress)
+              ?.call();
+            if (currentAllowance > BNBinput * 10 ** itemswap.decimals) {
+              setisapproved(true);
+            } else {
+              setisapproved(false);
+            }
           }
         }
+       
       }
       async function giveInformation(buyToken, sellToken, sellAmount) {
         await setloading(true);
@@ -88,6 +91,13 @@ const SwapPage: NextPageWithLayout = (props) => {
         await setPrice(quote.buyAmount / 10 ** itemswap2.decimals);
         await setloading(false);
       }
+      if (address) {
+        if (ethereumClient?.getNetwork()?.chain?.id !== 56) {
+          toast.warning("you're not connected to bsc");
+          setDefaultChain(bsc);
+        }
+      }
+
       giveApproved();
       giveInformation(
         itemswap2.address,
@@ -522,10 +532,11 @@ const SwapPage: NextPageWithLayout = (props) => {
                       : price && price.toFixed(itemswap2.decimals)
                   }
                   disabled
-                  type="text"
+                  type="number"
                   placeholder="0.0"
                   className="input_token w-full rounded-br-lg rounded-tr-lg border-0 pb-0 text-right text-lg outline-none focus:ring-0 dark:bg-light-dark"
                 />
+                <small className='pe-7'>{loading && "...loading"}</small>
               </div>
             </div>
           </div>
@@ -538,32 +549,40 @@ const SwapPage: NextPageWithLayout = (props) => {
           <TransactionInfo label={'Network Fee'} />
           <TransactionInfo label={'Criptic Fee'} />
         </div> */}
-        <Button
-          size="large"
-          shape="rounded"
-          fullWidth={true}
-          className="mt-6 uppercase xs:mt-8 xs:tracking-widest"
-        >
-          {itemswap.address === WBNBAddress ? (
+        {itemswap.address === WBNBAddress ? (
+          <Button
+            size="large"
+            shape="rounded"
+            fullWidth={true}
+            className="mt-6 uppercase xs:mt-8 xs:tracking-widest"
+            onClick={(e) => {
+              BNBTOTOKEN();
+            }}
+          >
             <button
               style={{ width: '100%', height: '100%' }}
-              onClick={(e) => {
-                BNBTOTOKEN();
-              }}
+             
             >
               SWAP
             </button>
-          ) : (
+          </Button>
+        ) : (
+          <Button
+            size="large"
+            shape="rounded"
+            fullWidth={true}
+            className="mt-6 uppercase xs:mt-8 xs:tracking-widest"
+            onClick={(e) => {
+              _swaptokenforBNB();
+            }}
+          >
             <button
               style={{ width: '100%', height: '100%' }}
-              onClick={(e) => {
-                _swaptokenforBNB();
-              }}
             >
               {isapproved ? 'SWAP' : 'APPROVE'}
             </button>
-          )}
-        </Button>
+          </Button>
+        )}
       </Trade>
     </>
   );
