@@ -32,72 +32,35 @@ export default function LiquidityChart() {
   const dailyLiquidity = numberAbbr(liquidity);
 
   return (
-    <div className="rounded-lg bg-white p-6 shadow-card dark:bg-light-dark sm:p-8">
-      <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 uppercase tracking-wider sm:mb-2 sm:text-base">
-        THE UPCOMING PLATFORM
-      </h3>
-      <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
-        Our platform will be powered by our deflationary utility-token
-        Siba Inu Finance andusers of our platform will be able to stake our
-        token to claim or issue NFT’s.We are setting out to become the easiest
-        NFT platform to use by amongst other things implementing simple drag &
-        drop solutions. First, we are releasing a web version and later apps for
-        both Android & IOS. Our apps will enable the creation of NFT’s from
-        phones.
+    <>
+      <div className="rounded-lg bg-white p-6 shadow-card dark:bg-light-dark sm:p-8">
+        <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 uppercase tracking-wider sm:mb-2 sm:text-base">
+          Swap your favourite tokens
+        </h3>
+        <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
+          Our current AMM architecture is proprietary, combining our upgraded
+          Pancake SwapV2 AMM with our brand new stable swap.This combination
+          delivers the unique ability to achieve lightning quick swaps at the
+          best rates the market has to offer. We will add your favorite Meme
+          tokens to our exchange section. Currently we have placed four coins
+          SIBA, DOGE, SHIB, FLOKI, tokens. But later, according to the request
+          of the community, we will add other tokens.
+        </div>
       </div>
-      {/* <div className="mt-5 h-64 sm:mt-8 2xl:h-72 3xl:h-[340px] 4xl:h-[480px]">
-        <ResponsiveContainer width="100%" height="100%">
-          <AreaChart
-            data={LiquidityData}
-            margin={{
-              top: 0,
-              right: 0,
-              left: 0,
-              bottom: 0,
-            }}
-            onMouseMove={(data) => {
-              if (data.isTooltipActive) {
-                setDate(
-                  data.activePayload && data.activePayload[0].payload.date
-                );
-                setLiquidity(
-                  data.activePayload &&
-                    data.activePayload[0].payload.dailyVolumeUSD
-                );
-              }
-            }}
-          >
-            <defs>
-              <linearGradient
-                id="liquidity-gradient"
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="1"
-              >
-                <stop offset="5%" stopColor="#bc9aff" stopOpacity={0.5} />
-                <stop offset="100%" stopColor="#7645D9" stopOpacity={0} />
-              </linearGradient>
-            </defs>
-            <XAxis
-              dataKey="date"
-              tickLine={false}
-              axisLine={false}
-              tick={<CustomAxis />}
-              interval={0}
-              tickMargin={5}
-            />
-            <Tooltip content={<></>} cursor={{ stroke: '#7645D9' }} />
-            <Area
-              type="linear"
-              dataKey="dailyVolumeUSD"
-              stroke="#7645D9"
-              strokeWidth={1.5}
-              fill="url(#liquidity-gradient)"
-            />
-          </AreaChart>
-        </ResponsiveContainer>
-      </div> */}
-    </div>
+      <div className="rounded-lg bg-white p-6 shadow-card dark:bg-light-dark sm:p-8">
+        <h3 className="text-md text-dark-600 dark:text-dark-400 mb-1.5 uppercase tracking-wider sm:mb-2 sm:text-base">
+          THE UPCOMING PLATFORM
+        </h3>
+        <div className="text-sm text-gray-600 dark:text-gray-400 sm:text-sm">
+          Our platform will be powered by our deflationary utility-token Siba
+          Inu Finance andusers of our platform will be able to stake our token
+          to claim or issue NFT’s.We are setting out to become the easiest NFT
+          platform to use by amongst other things implementing simple drag &
+          drop solutions. First, we are releasing a web version and later apps
+          for both Android & IOS. Our apps will enable the creation of NFT’s
+          from phones.
+        </div>
+      </div>
+    </>
   );
 }

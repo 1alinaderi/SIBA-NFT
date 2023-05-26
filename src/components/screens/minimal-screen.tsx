@@ -35,7 +35,6 @@ export default function MinimalScreen() {
  
 useEffect((e)=>{
   setTheme("dark")
-  console.log(theme)
 } , [theme])
 
   return (

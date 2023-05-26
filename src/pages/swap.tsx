@@ -41,7 +41,6 @@ const SwapPage: NextPageWithLayout = (props) => {
   const [price, setPrice] = useState(0.0);
   const [loading, setloading] = useState();
   const [BNBinput, setBNBinput] = useState();
-  const [migmigeinput, setmigmigeinput] = useState();
   const [dropdown, setdropdown] = useState(false);
   const [dropdown2, setdropdown2] = useState(false);
   const [itemswap, setItemswap] = useState({
@@ -107,7 +106,6 @@ const SwapPage: NextPageWithLayout = (props) => {
     },
     [BNBinput]
   );
-  console.log((BNBinput * 10 ** itemswap.decimals).toFixed())
 
   async function BNBTOTOKEN() {
     // Perform the swap.

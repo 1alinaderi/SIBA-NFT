@@ -34,7 +34,6 @@ export default function ModernScreen() {
   useEffect(
     (e) => {
       setTheme('dark');
-      console.log(theme);
     },
     [theme]
   );

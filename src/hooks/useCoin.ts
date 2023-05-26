@@ -56,7 +56,6 @@ export function useCoins(
 export function useCoin(id: string) {
   const { locale: language } = useRouter();
 
-  // console.log({ slug, language });
 
   const { data, isLoading, error } = useQuery<CoinPrice, Error>(
     [API_ENDPOINTS.PRICING, { id, language }],
