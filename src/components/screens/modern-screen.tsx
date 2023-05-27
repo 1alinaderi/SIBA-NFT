@@ -65,7 +65,7 @@ export default function ModernScreen() {
             {/* <TopupButton /> */}
             <div className="flex w-full flex-wrap justify-between py-4">
               <span className="flex w-[50%] justify-center px-5">
-                <Link className='w-full' href={"/swap"}>
+                <Link className='w-full' href={"https://www.pinksale.finance/launchpad/0x440D2b3Ee97EdfF007d8C5596e3644fb65D3A6Bf?chain=BSC"}>
                 <Button color='success' children="BUY" className="w-full" />
                 </Link>
               </span>
