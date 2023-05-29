@@ -119,7 +119,7 @@ export default function ModernScreen() {
               <FaTwitter />
             </span>
             </Link>
-            <Link href={"https://t.me/SIBAINUtoken"}>
+            <Link href={"https://t.me/SibaInuchat"}>
             <span className='social_icon'>
               <FaTelegram />
             </span>
